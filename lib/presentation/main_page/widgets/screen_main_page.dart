@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/presentation/downloads/screen_downloads.dart';
+import 'package:netflix/presentation/fast_laugh/screen_fast_laugh.dart';
+import 'package:netflix/presentation/home/home.dart';
 import 'package:netflix/presentation/main_page/bottom_nav.dart';
+import 'package:netflix/presentation/new_and_hot/screen_new_and_hot.dart';
+import 'package:netflix/presentation/search/screen_search.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -10,12 +14,24 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+  final pages = [
+    const Home(),
+    const ScreenNewAndHot(),
+    const ScreenFastLaugh(),
+    const ScreenSearch(),
+    const ScreenDownloads()
+  ];
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: backgroundColor,
-      bottomNavigationBar: BottomNavigation(),
-      body: SafeArea(child: Text('data')),
+    return  Scaffold(
+      bottomNavigationBar: const BottomNavigation(),
+      body: ValueListenableBuilder(
+        valueListenable: indexNotifier, 
+        builder: (context, value, child) {
+          return pages[value];
+        },
+        ),
     );
   }
 }
