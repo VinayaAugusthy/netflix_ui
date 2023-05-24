@@ -31,14 +31,11 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           ),
           ),
          const Spacer(),
-         IconButton(
-          onPressed: (){}, 
-          icon: const Icon(
+        const Icon(
             Icons.cast,
             color: Colors.white,
             size: 30,
-            ),
-            ),
+            ), 
            width,
           Container(
             width: 30,
