@@ -5,3 +5,5 @@ const width =   SizedBox(width: 10);
 const height = SizedBox(height: 10);
 
 const tileHeight = SizedBox(height: 20);
+
+final borderRadius = BorderRadius.circular(10);
