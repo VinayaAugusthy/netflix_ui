@@ -9,3 +9,5 @@ const buttonColorBlue = Colors.blue;
 const buttonColorWhite = Colors.white;
 
 const colorBlack = Colors.black;
+
+const colorGrey = Colors.grey;

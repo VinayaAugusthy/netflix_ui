@@ -5,7 +5,7 @@ import 'package:netflix/presentation/home/widgets/background_card.dart';
 import 'package:netflix/presentation/widgets/main_title_card.dart';
 import 'widgets/title_number_card.dart';
 
-ValueNotifier<bool> scrollNotifier = ValueNotifier(false);
+ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -47,21 +47,55 @@ class _HomeState extends State<Home> {
                     MainTitleAndCard(title: 'South Indian Cinemas')
                   ],
                 ),
-                scrollNotifier.value == true ? Container(
+                scrollNotifier.value == true ? 
+                AnimatedContainer(
+                  duration: const Duration(
+                    milliseconds: 1000
+                  ),
                   width: double.infinity,
                   height: 100,
-                  color: Colors.orange,
+                  color: Colors.black.withOpacity(0.3),
                   child: Column(
                     children: [
                       Row(
                         children: [
                           Image.network(
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIwCSCDi_eg3qa8yrtzuZbj1LoFykC8Ik1qA&usqp=CAU',
-                             width: 50,
-                             height: 100,
-                          )
+                             width: 60,
+                             height: 60,
+                          ),
+                          const Spacer(),
+                           const Icon(
+                          Icons.cast,
+                          color: Colors.white,
+                          size: 30,
+                          ), 
+                        width,
+                        Container(
+                          width: 30,
+                          height: 30,
+                          color: Colors.blue,
+                        ),
+                        width,
                         ],
                       ),
+                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            'TV Shows',
+                            style: ktextHome
+                          ),
+                          Text(
+                            'Movies',
+                             style: ktextHome
+                          ),
+                          Text(
+                            'Categories',
+                             style: ktextHome
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ) : height,
