@@ -170,7 +170,7 @@ class Session3 extends StatelessWidget {
                     ),
                   ),
                 ),
-          ),
+              ),
             ),
               MaterialButton(
               color: whiteColor,
@@ -226,8 +226,8 @@ class DownloadsImageWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: colorBlack,
             image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(imageList))
+            fit: BoxFit.cover,
+            image: NetworkImage(imageList))
           ),
         ),
       ),
