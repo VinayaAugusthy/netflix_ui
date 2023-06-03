@@ -68,11 +68,7 @@ class _smartDownloads extends StatelessWidget {
 class Session2 extends StatelessWidget {
    Session2({super.key});
 
-    final imageList = [
-    'https://www.themoviedb.org/t/p/w220_and_h330_face/tAecIhVgYfeIXpF3UJw8jE38fyn.jpg',
-    'https://www.themoviedb.org/t/p/w220_and_h330_face/kuf6dutpsT0vSVehic3EZIqkOBt.jpg',
-    'https://www.themoviedb.org/t/p/w220_and_h330_face/y2d2SBqK33mGOG2CqAYMo3YbWE4.jpg'
-  ];
+    final imageList = [];
 
   @override
   Widget build(BuildContext context) {

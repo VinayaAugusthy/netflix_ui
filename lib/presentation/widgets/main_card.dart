@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:netflix/core/strings.dart';
 import '../../core/constants.dart';
 
 class MainCard extends StatelessWidget {
-  const MainCard({
+  final String posterPath;
+   const MainCard({
+    required this.posterPath,
     super.key,
   });
 
@@ -17,9 +19,9 @@ class MainCard extends StatelessWidget {
         decoration:  BoxDecoration(
           borderRadius: borderRadius,
           color: Colors.amber,
-         image: const DecorationImage( 
+         image:  DecorationImage( 
           fit: BoxFit.cover,
-        image: NetworkImage('https://www.themoviedb.org/t/p/w220_and_h330_face/y2d2SBqK33mGOG2CqAYMo3YbWE4.jpg'),
+        image: NetworkImage(kBaseUrl+posterPath),
          ),
         ),
       ),

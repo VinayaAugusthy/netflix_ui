@@ -1,11 +1,15 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/http/trending.dart';
+import 'package:netflix/model/trending_model.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
 import 'package:netflix/presentation/widgets/main_title_card.dart';
 import 'widgets/title_number_card.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
+
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -15,6 +19,21 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  
+  @override
+  void initState() {
+    
+    // TODO: implement initState
+    getTrending();
+    super.initState();
+  }
+
+  List<TrendingList> trending=[];
+
+getTrending() async{
+trending = await TrendingHome.getTrendingMovies();
+}
   @override
   Widget build(BuildContext context) {
     return   Scaffold(
@@ -36,15 +55,15 @@ class _HomeState extends State<Home> {
             child: Stack(
               children: [
                 ListView(
-                  children:  const [
-                   BackgroundCard(),
-                    MainTitleAndCard(
-                      title:'Released in the past year',
-                    ),
-                    MainTitleAndCard(title: 'Trending Now'),
-                    NumberTitleCard(),
-                    MainTitleAndCard(title: 'Tense Dramas'),
-                    MainTitleAndCard(title: 'South Indian Cinemas')
+                  children:   [
+                   const BackgroundCard(),
+                    // const MainTitleAndCard(
+                    //   title:'Released in the past year',
+                    // ),
+                    MainTitleAndCard(title: 'Trending Now',passList: trending),
+                    const NumberTitleCard(),
+                    // const MainTitleAndCard(title: 'Tense Dramas'),
+                    // const MainTitleAndCard(title: 'South Indian Cinemas')
                   ],
                 ),
                 scrollNotifier.value == true ? 
