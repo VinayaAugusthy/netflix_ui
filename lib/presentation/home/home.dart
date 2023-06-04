@@ -4,8 +4,10 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/http/top_tvshows.dart';
 import 'package:netflix/http/trending.dart';
+import 'package:netflix/http/upcoming.dart';
 import 'package:netflix/model/top_tvshows_model.dart';
 import 'package:netflix/model/trending_model.dart';
+import 'package:netflix/model/upcoming.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
 import 'package:netflix/presentation/widgets/main_title_card.dart';
 import 'widgets/title_number_card.dart';
@@ -29,11 +31,13 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     getTrending();
     getTvShows();
+    getUpcoming();
     super.initState();
   }
 
   List<TrendingList> trending=[];
   List<Results> tvShows = [];
+   List<ResultsUpcoming> upcoming = [];
 
 getTrending() async{
 trending = await TrendingHome.getTrendingMovies();
@@ -41,6 +45,10 @@ trending = await TrendingHome.getTrendingMovies();
 
 getTvShows() async{
   tvShows = await TopTvShowsHome.getTopShows();
+}
+
+getUpcoming() async{
+  upcoming = await UpcomingHome.getUpcomings();
 }
   @override
   Widget build(BuildContext context) {
@@ -70,7 +78,7 @@ getTvShows() async{
                     // ),
                     MainTitleAndCard(title: 'Trending Now',passList: trending),
                      NumberTitleCard(passList: tvShows,),
-                    // const MainTitleAndCard(title: 'Tense Dramas'),
+                     MainTitleAndCard(title: 'Upcoming Movies',passList: upcoming),
                     // const MainTitleAndCard(title: 'South Indian Cinemas')
                   ],
                 ),

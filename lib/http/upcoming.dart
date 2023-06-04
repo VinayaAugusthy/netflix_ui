@@ -4,9 +4,9 @@ import '../infrastructue/api_key.dart';
 import '../model/upcoming.dart';
 import 'package:http/http.dart' as http;
 class UpcomingHome {
-  static Future<List<Results>> getTopShows() async{
+  static Future<List<ResultsUpcoming>> getUpcomings() async{
     var client = http.Client();
-    var uri = "http://api.themoviedb.org/3/tv/popular?api_key=$apiKey";
+    var uri = "https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey";
     List upcomingResults = [];
     var url = Uri.parse(uri);
     var response = await client.get(url);
@@ -17,6 +17,6 @@ class UpcomingHome {
         upcomingResults.add(upcoming);
       }
     }
-    return Results.upcomingFromJson(upcomingResults);
+    return ResultsUpcoming.upcomingFromJson(upcomingResults);
   }
 }
