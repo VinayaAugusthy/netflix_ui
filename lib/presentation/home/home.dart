@@ -72,14 +72,10 @@ getUpcoming() async{
               children: [
                 ListView(
                   children:   [
-                   const BackgroundCard(),
-                    // const MainTitleAndCard(
-                    //   title:'Released in the past year',
-                    // ),
+                    BackgroundCard(posterPath: trending[3].posterPath,),
                     MainTitleAndCard(title: 'Trending Now',passList: trending),
                      NumberTitleCard(passList: tvShows,),
                      MainTitleAndCard(title: 'Upcoming Movies',passList: upcoming),
-                    // const MainTitleAndCard(title: 'South Indian Cinemas')
                   ],
                 ),
                 scrollNotifier.value == true ? 

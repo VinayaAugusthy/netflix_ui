@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/core/strings.dart';
 import '../../../core/colors/colors.dart';
 import 'custom_button.dart';
 
 class BackgroundCard extends StatelessWidget {
-  const BackgroundCard({super.key});
+  const BackgroundCard({
+    required this.posterPath,
+    super.key
+    });
 
+final String? posterPath;
   @override
   Widget build(BuildContext context) {
     return  Stack(
@@ -12,12 +17,12 @@ class BackgroundCard extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 500,
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
               color: Colors.amber,
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  'https://www.themoviedb.org/t/p/w220_and_h330_face/n8ZpMwYT02XjpQHpSxn1eJw5Zpz.jpg'
+                  kBaseUrl+posterPath!
                 ),
               )
             ),
