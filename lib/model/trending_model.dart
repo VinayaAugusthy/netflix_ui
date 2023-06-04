@@ -87,7 +87,7 @@ class TrendingList {
   static List<TrendingList> trendingFromSnapshot(
       List<dynamic> trendingSnapshot) {
     return trendingSnapshot
-        .map((jsonData) => TrendingList.fromJson(jsonData))
+        .map((json) => TrendingList.fromJson(json))
         .toList();
   }
 }

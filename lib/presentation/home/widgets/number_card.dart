@@ -1,15 +1,18 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
+import 'package:netflix/core/strings.dart';
 import '../../../core/constants.dart';
 
 class NumberCard extends StatelessWidget {
   const NumberCard({
     super.key,
+    required this.posterPath,
     required this.index,
   });
 
 final int index;
+final String posterPath;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +30,9 @@ final int index;
                 decoration:  BoxDecoration(
                   borderRadius: borderRadius,
                   color: Colors.amber,
-                 image: const DecorationImage( 
+                 image:  DecorationImage( 
                   fit: BoxFit.cover,
-                image: NetworkImage('https://www.themoviedb.org/t/p/w220_and_h330_face/y2d2SBqK33mGOG2CqAYMo3YbWE4.jpg'),
+                image: NetworkImage(kBaseUrl+posterPath),
                  ),
                 ),
               ),

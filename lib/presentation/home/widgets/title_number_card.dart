@@ -6,9 +6,10 @@ import 'number_card.dart';
 
 class NumberTitleCard extends StatelessWidget {
   const NumberTitleCard({
+    required this.passList,
     super.key,
   });
-
+  final List passList;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +21,7 @@ class NumberTitleCard extends StatelessWidget {
           maxHeight: 240,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: List.generate(10, (index) =>  NumberCard(index: index)),
+            children: List.generate(10, (index) =>  NumberCard(index: index,posterPath: passList[index].posterPath,)),
           ),
         ) 
       ],
