@@ -6,14 +6,14 @@ import '../../home/widgets/custom_button.dart';
 import '../../widgets/video_widget.dart';
  
 class EveryoneWatching extends StatefulWidget {
-   EveryoneWatching({
+   const EveryoneWatching({
     required this.index,
     required this.passList,
     super.key,
   });
 
-int index;
-List passList;
+final int index;
+final List passList;
   @override
   State<EveryoneWatching> createState() => _EveryoneWatchingState();
 }

@@ -83,11 +83,11 @@ class SmartDownloads extends StatelessWidget {
 }
 
 class Session2 extends StatelessWidget {
-   Session2({
+   const Session2({
     required this.imageList,
     super.key});
 
-     List imageList;
+    final List imageList;
 
   @override
   Widget build(BuildContext context) {

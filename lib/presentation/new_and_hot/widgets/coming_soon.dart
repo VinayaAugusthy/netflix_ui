@@ -6,13 +6,13 @@ import '../../home/widgets/custom_button.dart';
 import '../../widgets/video_widget.dart';
 
 class ComingSoonWidget extends StatefulWidget {
-   ComingSoonWidget({
+   const ComingSoonWidget({
     required this.index,
     required this.passList,
     super.key,
   });
-List passList;
-int index;
+final List passList;
+final int index;
 
   @override
   State<ComingSoonWidget> createState() => _ComingSoonWidgetState();

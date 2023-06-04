@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/core/strings.dart';
 import 'package:netflix/presentation/search/widgets/title.dart';
 
-const imageUrl = 'https://www.themoviedb.org/t/p/w250_and_h141_face/orjyEE9ZcMefTsN8zT5ryQTdkIz.jpg';
-
 class SearchIdleWidget extends StatelessWidget {
-  const SearchIdleWidget({super.key});
-
+  const SearchIdleWidget({
+    required this.passList,
+    super.key,
+    });
+final List passList;
   @override
   Widget build(BuildContext context) {
     return  Column(
@@ -18,9 +20,12 @@ class SearchIdleWidget extends StatelessWidget {
         Expanded(
           child: ListView.separated(
             shrinkWrap: true,
-            itemBuilder: (ctx,index)=>const TopSearchItemTile(), 
+            itemBuilder: (ctx,index)=> TopSearchItemTile(
+              backdropPath:kBaseUrl+passList[index].backdropPath,
+              title: passList[index].title,
+            ), 
             separatorBuilder: (ctx,index) => tileHeight, 
-            itemCount: 10,
+            itemCount: 8,
           ),
         ),
       ],
@@ -30,7 +35,13 @@ class SearchIdleWidget extends StatelessWidget {
 
 
 class TopSearchItemTile extends StatelessWidget {
-  const TopSearchItemTile({super.key});
+  const TopSearchItemTile({
+     required this.backdropPath,
+     required this.title,
+    super.key,
+    });
+final String backdropPath;
+final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +51,18 @@ class TopSearchItemTile extends StatelessWidget {
         Container(
           width: screenWidth * 0.35,
           height: 65,
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image:NetworkImage(imageUrl) ,
+              image:NetworkImage(backdropPath) ,
             )
           ),
         ),
         width,
-        const Expanded(
+         Expanded(
           child: Text(
-            'Movie Name',
-            style: TextStyle(
+            title,
+            style: const TextStyle(
               fontWeight: FontWeight.bold
             ),
           ),

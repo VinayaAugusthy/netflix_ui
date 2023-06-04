@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:netflix/core/strings.dart';
 
 class VideoWidget extends StatelessWidget {
-   VideoWidget({
+   const VideoWidget({
      required this.passList,
      required this.index,
     super.key,
   });
 
- List passList;
- int index;
+ final List passList;
+ final int index;
   @override
   Widget build(BuildContext context) {
     return Stack(
