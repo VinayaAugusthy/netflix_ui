@@ -9,7 +9,7 @@ class BackgroundCard extends StatelessWidget {
     super.key
     });
 
-final String? posterPath;
+final String posterPath;
   @override
   Widget build(BuildContext context) {
     return  Stack(
@@ -22,7 +22,7 @@ final String? posterPath;
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  kBaseUrl+posterPath!
+                  kBaseUrl+posterPath
                 ),
               )
             ),

@@ -1,10 +1,13 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/core/strings.dart';
+import 'package:netflix/http/downloads/download_images.dart';
+import 'package:netflix/model/downloads/download_model.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
 
+List<ResultsDownloads> images = [];
 class ScreenDownloads extends StatefulWidget {
   const ScreenDownloads({super.key});
 
@@ -14,6 +17,17 @@ class ScreenDownloads extends StatefulWidget {
 
 class _ScreenDownloadsState extends State<ScreenDownloads> {
 
+
+@override
+  void initState() {
+    // TODO: implement initState
+    getDownloadImages();
+    super.initState();
+  }
+
+  getDownloadImages() async{
+    images = await Download.getImages();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,7 +37,7 @@ class _ScreenDownloadsState extends State<ScreenDownloads> {
           child: AppBarWidget(title: 'Downloads',)),
         body:ListView(
           children:   [
-            const _smartDownloads(),
+             const SmartDownloads(),
             Session2(),
             const Session3(),
           ],
@@ -33,8 +47,8 @@ class _ScreenDownloadsState extends State<ScreenDownloads> {
   }
 }
 
-class _smartDownloads extends StatelessWidget {
-  const _smartDownloads({
+class SmartDownloads extends StatelessWidget {
+  const SmartDownloads({
     super.key,
   });
 
@@ -68,7 +82,7 @@ class _smartDownloads extends StatelessWidget {
 class Session2 extends StatelessWidget {
    Session2({super.key});
 
-    final imageList = [];
+    // final imageList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -107,20 +121,20 @@ class Session2 extends StatelessWidget {
               ),
               DownloadsImageWidget(
                 margin:const EdgeInsets.only(left: 130,bottom: 50), 
-                imageList: imageList[0],
+                imageList: images[0].posterPath!,
                 size: Size(size.width * 0.4, size.width * 0.54),
                 angle: 20,
                 ),
                 DownloadsImageWidget(
                 margin:const EdgeInsets.only(right: 130,bottom: 50),
                 size: Size(size.width * 0.4, size.width * 0.54), 
-                imageList: imageList[1],
+                imageList: images[1].posterPath!,
                 angle: -20,
                 ),
                 DownloadsImageWidget(
                 margin:const EdgeInsets.only(top: 0),
                 size: Size(size.width * 0.46, size.width * 0.62), 
-                imageList: imageList[2],
+                imageList: images[2].posterPath!,
                 radius: 8,
               ),
             ],
@@ -223,7 +237,7 @@ class DownloadsImageWidget extends StatelessWidget {
             color: colorBlack,
             image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(imageList))
+            image: NetworkImage(kBaseUrl+imageList))
           ),
         ),
       ),

@@ -71,10 +71,10 @@ class _ScreenNewAndHotState extends State<ScreenNewAndHot> {
     );
   }
 
-Widget _buildComingSoon(){
+ _buildComingSoon(){
   return ListView.builder(
     itemCount: 10,
-    itemBuilder: ( (context, index) => const ComingSoonWidget()),
+    itemBuilder: ((context, index) => const ComingSoonWidget()),
   );
 }
 }

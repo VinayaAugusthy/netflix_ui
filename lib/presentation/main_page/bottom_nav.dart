@@ -41,10 +41,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
             label: 'New & Hot',
           ),
            BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_emotions),
-            label: 'Fast & Laughs',
-          ),
-           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
           ),
