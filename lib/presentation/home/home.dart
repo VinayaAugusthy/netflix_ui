@@ -14,7 +14,6 @@ import 'widgets/title_number_card.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
-
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -24,10 +23,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  
   @override
   void initState() {
-    
     // TODO: implement initState
     getTrending();
     getTvShows();
@@ -37,7 +34,7 @@ class _HomeState extends State<Home> {
 
   List<TrendingList> trending=[];
   List<Results> tvShows = [];
-   List<ResultsUpcoming> upcoming = [];
+  List<ResultsUpcoming> upcoming = [];
 
 getTrending() async{
 trending = await TrendingHome.getTrendingMovies();
