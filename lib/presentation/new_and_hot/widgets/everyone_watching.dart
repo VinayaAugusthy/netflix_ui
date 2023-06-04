@@ -1,39 +1,50 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import '../../../core/colors/colors.dart';
 import '../../../core/constants.dart';
 import '../../home/widgets/custom_button.dart';
 import '../../widgets/video_widget.dart';
-
-class EveryoneWatching extends StatelessWidget {
-  const EveryoneWatching({
+ 
+class EveryoneWatching extends StatefulWidget {
+   EveryoneWatching({
+    required this.index,
+    required this.passList,
     super.key,
   });
 
+int index;
+List passList;
+  @override
+  State<EveryoneWatching> createState() => _EveryoneWatchingState();
+}
+
+class _EveryoneWatchingState extends State<EveryoneWatching> {
+
   @override
   Widget build(BuildContext context) {
-  return  const Column(
+  return   Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children:  [
       height,
-       Text(
-      'Friends',
+        Text(
+      widget.passList[widget.index].title,
+      
       style: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold
       ),
     ),
     height,
-    Text(
-      "Landing the lead in the school musical is a dream come true for jodi, until the pressure sesnds her confidence-and her relationship-into a tailspin",
+     Text(
+      widget.passList[widget.index].overview,
       style: TextStyle(
         color: colorGrey
       ),
     ),
     height50,
-    VideoWidget(),
+    VideoWidget(passList: widget.passList,index: widget.index,),
     height,
-    Row(
+    const Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         CustomButton(

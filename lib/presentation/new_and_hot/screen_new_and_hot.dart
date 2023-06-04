@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import '../../core/constants.dart';
+import '../../http/new&hot/coming_soon_function.dart';
+import '../../http/new&hot/eveyonewatching.dart';
+import '../../model/new&hot/coming_soon_model.dart';
+import '../../model/new&hot/everyonewatching_model.dart';
 import 'widgets/coming_soon.dart';
 import 'widgets/everyone_watching.dart';
 
@@ -12,6 +16,17 @@ class ScreenNewAndHot extends StatefulWidget {
 }
 
 class _ScreenNewAndHotState extends State<ScreenNewAndHot> {
+  List<WatchingResults> everyOneWatching = [];
+  List<ResultsComingSoon> comingSoonList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getWatching();
+    comingSoon();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -73,18 +88,34 @@ class _ScreenNewAndHotState extends State<ScreenNewAndHot> {
 
  _buildComingSoon(){
   return ListView.builder(
-    itemCount: 10,
-    itemBuilder: ((context, index) => const ComingSoonWidget()),
+    itemCount: comingSoonList.length,
+    itemBuilder: ((context, index) =>  ComingSoonWidget(index: index,passList: comingSoonList,)),
   );
 }
-}
-
 _everyoneWatching(){
    return ListView.builder(
-    itemCount: 10,
-    itemBuilder: ( (context, index) => const EveryoneWatching()),
+    itemCount: everyOneWatching.length,
+    itemBuilder: ( (context, index) =>  EveryoneWatching(index: index,passList: everyOneWatching)),
   );
 }
+
+ getWatching() async{
+    everyOneWatching = await CallWatching.getWatching();
+    // log(everyOneWatching.toString());
+    // setState(() {
+      
+    // });
+  }
+
+   comingSoon() async{
+    comingSoonList = await CallComingSoon.getcomingSoon();
+    setState(() {
+      
+    });
+  }
+}
+
+
 
 
 

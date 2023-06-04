@@ -7,7 +7,7 @@ import 'package:netflix/http/downloads/download_images.dart';
 import 'package:netflix/model/downloads/download_model.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
 
-List<ResultsDownloads> images = [];
+
 class ScreenDownloads extends StatefulWidget {
   const ScreenDownloads({super.key});
 
@@ -16,7 +16,7 @@ class ScreenDownloads extends StatefulWidget {
 }
 
 class _ScreenDownloadsState extends State<ScreenDownloads> {
-
+List<ResultsDownloads> images = [];
 
 @override
   void initState() {
@@ -27,6 +27,9 @@ class _ScreenDownloadsState extends State<ScreenDownloads> {
 
   getDownloadImages() async{
     images = await Download.getImages();
+    setState(() {
+      
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,7 @@ class _ScreenDownloadsState extends State<ScreenDownloads> {
         body:ListView(
           children:   [
              const SmartDownloads(),
-            Session2(),
+            Session2(imageList: images,),
             const Session3(),
           ],
         )
@@ -80,9 +83,11 @@ class SmartDownloads extends StatelessWidget {
 }
 
 class Session2 extends StatelessWidget {
-   Session2({super.key});
+   Session2({
+    required this.imageList,
+    super.key});
 
-    // final imageList = [];
+     List imageList;
 
   @override
   Widget build(BuildContext context) {
@@ -121,20 +126,20 @@ class Session2 extends StatelessWidget {
               ),
               DownloadsImageWidget(
                 margin:const EdgeInsets.only(left: 130,bottom: 50), 
-                imageList: images[0].posterPath!,
+                imageList: imageList[0].posterPath!,
                 size: Size(size.width * 0.4, size.width * 0.54),
                 angle: 20,
                 ),
                 DownloadsImageWidget(
                 margin:const EdgeInsets.only(right: 130,bottom: 50),
                 size: Size(size.width * 0.4, size.width * 0.54), 
-                imageList: images[1].posterPath!,
+                imageList: imageList[1].posterPath!,
                 angle: -20,
                 ),
                 DownloadsImageWidget(
                 margin:const EdgeInsets.only(top: 0),
                 size: Size(size.width * 0.46, size.width * 0.62), 
-                imageList: images[2].posterPath!,
+                imageList: imageList[2].posterPath!,
                 radius: 8,
               ),
             ],

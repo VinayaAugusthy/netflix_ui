@@ -39,11 +39,10 @@ dependencies:
   google_fonts: ^4.0.4
   http: ^1.0.0
   injectable: ^2.1.2
+  intl: ^0.18.1
   json_annotation: ^4.8.1
   json_dart_generator: ^1.1.0+1
   json_serializable: ^6.7.0
-  tmdb_api: ^2.1.5
-  video_player: ^2.6.1
 
 dev_dependencies:
   build_runner: ^2.4.4
