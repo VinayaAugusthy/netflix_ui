@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:netflix/core/constants.dart';
-import 'package:netflix/http/top_tvshows.dart';
-import 'package:netflix/http/trending.dart';
-import 'package:netflix/http/upcoming.dart';
-import 'package:netflix/model/top_tvshows_model.dart';
-import 'package:netflix/model/trending_model.dart';
-import 'package:netflix/model/upcoming.dart';
+import 'package:netflix/domain/http/top_tvshows.dart';
+import 'package:netflix/domain/http/trending.dart';
+import 'package:netflix/domain/http/upcoming.dart';
+import 'package:netflix/domain/model/top_tvshows_model.dart';
+import 'package:netflix/domain/model/trending_model.dart';
+import 'package:netflix/domain/model/upcoming.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
 import 'package:netflix/presentation/widgets/main_title_card.dart';
 import 'widgets/title_number_card.dart';
@@ -73,8 +73,9 @@ getUpcoming() async{
                 children: [
                   ListView.builder(
                     itemCount: 1,
-                    itemBuilder: (context, index) {                     
-                      return Column(
+                    itemBuilder: (context, index) {  
+                      return trending.isEmpty ? Center(child: const CircularProgressIndicator()) :
+                      Column(
                       children:   [
                         BackgroundCard(posterPath: trending[index].posterPath??"may be null",),
                         MainTitleAndCard(title: 'Trending Now',passList: trending),

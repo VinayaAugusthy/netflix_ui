@@ -1,22 +1,23 @@
 import 'dart:convert';
 
-import '../infrastructue/api_key.dart';
-import '../model/upcoming.dart';
+import 'package:netflix/domain/model/new&hot/coming_soon_model.dart';
 import 'package:http/http.dart' as http;
-class UpcomingHome {
-  static Future<List<ResultsUpcoming>> getUpcomings() async{
+
+import '../../../infrastructue/api_key.dart';
+class CallComingSoon {
+  static Future<List<ResultsComingSoon>> getcomingSoon() async{
     var client = http.Client();
     var uri = "https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey";
-    List upcomingResults = [];
+    List comingSoonResults = [];
     var url = Uri.parse(uri);
     var response = await client.get(url);
     if (response.statusCode == 200) {
       var json = jsonDecode(response.body);
       final List<dynamic> results = json['results'];
-      for (var upcoming in results) {
-        upcomingResults.add(upcoming);
+      for (var comingSoon in results) {
+        comingSoonResults.add(comingSoon);
       }
     }
-    return ResultsUpcoming.upcomingFromJson(upcomingResults);
+    return ResultsComingSoon.comingSoonFromJson(comingSoonResults);
   }
 }

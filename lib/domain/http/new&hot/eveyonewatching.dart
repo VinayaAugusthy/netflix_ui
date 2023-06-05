@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../infrastructue/api_key.dart';
+import '../../../infrastructue/api_key.dart';
 import '../../model/new&hot/everyonewatching_model.dart';
 class CallWatching {
   static Future<List<WatchingResults>> getWatching() async{

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:netflix/infrastructue/api_key.dart';
-import 'package:netflix/model/trending_model.dart';
+import 'package:netflix/domain/model/trending_model.dart';
 import 'package:http/http.dart' as http;
 class TrendingHome {
  static Future<List<TrendingList>> getTrendingMovies() async{

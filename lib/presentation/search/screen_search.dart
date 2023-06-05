@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix/http/search/search_function.dart';
-import 'package:netflix/http/search/top_search.dart';
-import 'package:netflix/model/search/top_search_model.dart';
+import 'package:netflix/domain/http/search/search_function.dart';
+import 'package:netflix/domain/http/search/top_search.dart';
+import 'package:netflix/domain/model/search/top_search_model.dart';
 import 'package:netflix/presentation/search/widgets/search_idle.dart';
 import 'package:netflix/presentation/search/widgets/search_result.dart';
 import '../../core/constants.dart';
-import '../../model/search/search_model.dart';
+import '../../domain/model/search/search_model.dart';
 
 class ScreenSearch extends StatefulWidget {
   const ScreenSearch({super.key});

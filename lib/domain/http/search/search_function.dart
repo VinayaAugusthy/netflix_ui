@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../infrastructue/api_key.dart';
+import '../../../infrastructue/api_key.dart';
 import '../../model/search/search_model.dart';
 import 'package:http/http.dart' as http;
 class CallSearch {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/colors/colors.dart';
 import '../../core/constants.dart';
-import '../../http/new&hot/coming_soon_function.dart';
-import '../../http/new&hot/eveyonewatching.dart';
-import '../../model/new&hot/coming_soon_model.dart';
-import '../../model/new&hot/everyonewatching_model.dart';
+import '../../domain/http/new&hot/coming_soon_function.dart';
+import '../../domain/http/new&hot/eveyonewatching.dart';
+import '../../domain/model/new&hot/coming_soon_model.dart';
+import '../../domain/model/new&hot/everyonewatching_model.dart';
 import 'widgets/coming_soon.dart';
 import 'widgets/everyone_watching.dart';
 

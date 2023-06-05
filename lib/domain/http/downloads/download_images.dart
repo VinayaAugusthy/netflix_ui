@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:netflix/model/downloads/download_model.dart';
+import 'package:netflix/domain/model/downloads/download_model.dart';
 
-import '../../infrastructue/api_key.dart';
+import '../../../infrastructue/api_key.dart';
 class Download{
   static Future<List<ResultsDownloads>> getImages() async{
     var client = http.Client();

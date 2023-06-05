@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:netflix/infrastructue/api_key.dart';
-import 'package:netflix/model/top_tvshows_model.dart';
+import 'package:netflix/domain/model/top_tvshows_model.dart';
 
 class TopTvShowsHome {
   static Future<List<Results>> getTopShows() async{
