@@ -4,12 +4,16 @@ import 'package:netflix/core/constants.dart';
 import 'package:netflix/core/strings.dart';
 import 'package:netflix/presentation/search/widgets/title.dart';
 
+//  const imageUrl = 'https://www.themoviedb.org/t/p/w250_and_h141_face/orjyEE9ZcMefTsN8zT5ryQTdkIz.jpg';
+
 class SearchIdleWidget extends StatelessWidget {
   const SearchIdleWidget({
     required this.passList,
+    // required this.searchedValue,
     super.key,
     });
 final List passList;
+// final String searchedValue;
   @override
   Widget build(BuildContext context) {
     return  Column(
@@ -18,7 +22,9 @@ final List passList;
         const TitleSearchPage(title: 'Top Searches'),
         height,
         Expanded(
-          child: ListView.separated(
+          child:passList.isEmpty ? 
+          const Center(child: CircularProgressIndicator(),)
+           :ListView.separated(
             shrinkWrap: true,
             itemBuilder: (ctx,index)=> TopSearchItemTile(
               backdropPath:kBaseUrl+passList[index].backdropPath,

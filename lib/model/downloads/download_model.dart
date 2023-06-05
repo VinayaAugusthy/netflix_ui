@@ -12,7 +12,7 @@ class DownloadScreenImages {
     if (json['results'] != null) {
       results = <ResultsDownloads>[];
       json['results'].forEach((v) {
-        results!.add(new ResultsDownloads.fromJson(v));
+        results!.add(ResultsDownloads.fromJson(v));
       });
     }
     totalPages = json['total_pages'];

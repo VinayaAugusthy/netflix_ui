@@ -24,14 +24,17 @@ class _ViewSearchedMatchesState extends State<ViewSearchedMatches> {
         const TitleSearchPage(title: 'Movies & TV'),
         height,
         Expanded(
-          child:widget.passList.isEmpty ?
-            const Center(child: CircularProgressIndicator(),)
-           : GridView.count(
+          child: GridView.count(
+            // semanticChildCount:widget.passList.length,
             mainAxisSpacing: 8,
             crossAxisSpacing: 5,
             childAspectRatio: 1/1.4,
             crossAxisCount: 3,
-            children: List.generate(widget.passList.length, (index)=>  MainCard(imageUrl: kBaseUrl+widget.passList[index].posterPath,))
+            children: List.generate(widget.passList.length, (index)=> 
+            widget.passList[index].posterPath == null ? 
+            const Center(child: CircularProgressIndicator()) :
+             MainCard(imageUrl: kBaseUrl+widget.passList[index].posterPath,)
+             )
           )
         )
       ],

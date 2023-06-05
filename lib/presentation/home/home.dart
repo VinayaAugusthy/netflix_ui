@@ -39,23 +39,17 @@ class _HomeState extends State<Home> {
 
 getTrending() async{
 trending = await TrendingHome.getTrendingMovies();
-setState(() {
-  
-});
+setState(() {});
 }
 
 getTvShows() async{
   tvShows = await TopTvShowsHome.getTopShows();
-  setState(() {
-    
-  });
+  setState(() {});
 }
 
 getUpcoming() async{
   upcoming = await UpcomingHome.getUpcomings();
-  setState(() {
-    
-  });
+  setState(() {});
 }
   @override
   Widget build(BuildContext context) {
@@ -79,8 +73,7 @@ getUpcoming() async{
                 children: [
                   ListView.builder(
                     itemCount: 1,
-                    itemBuilder: (context, index) {
-                      
+                    itemBuilder: (context, index) {                     
                       return Column(
                       children:   [
                         BackgroundCard(posterPath: trending[index].posterPath??"may be null",),

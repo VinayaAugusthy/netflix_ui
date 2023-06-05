@@ -38,12 +38,16 @@ List<ResultsDownloads> images = [];
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(30),
           child: AppBarWidget(title: 'Downloads',)),
-        body:ListView(
-          children:   [
-             const SmartDownloads(),
-            Session2(imageList: images,),
-            const Session3(),
-          ],
+        body:SafeArea(
+          child:images.isEmpty? 
+          const Center(child:CircularProgressIndicator(),)
+          :ListView(
+            children:   [
+               const SmartDownloads(),
+              Session2(imageList:images,),
+              const Session3(),
+            ],
+          ),
         )
       ),
     );

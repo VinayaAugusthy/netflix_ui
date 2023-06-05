@@ -79,7 +79,8 @@ List<TopSearch> topSearchArray = [];
                 child: isValue ?
                  SearchIdleWidget(passList: topSearchArray)
               : ViewSearchedMatches(passList: searchArray),
-               )
+               ),
+               
             ],
           ),
         ) ,

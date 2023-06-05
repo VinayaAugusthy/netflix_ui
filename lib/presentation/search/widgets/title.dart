@@ -6,16 +6,13 @@ class TitleSearchPage extends StatelessWidget {
     super.key,
   });
 
-final String title;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return  Text(
+    return Text(
       title,
-      style: const TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.bold
-      ),
+      style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
     );
   }
 }
