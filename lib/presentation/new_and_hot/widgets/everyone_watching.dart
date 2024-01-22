@@ -29,7 +29,7 @@ class _EveryoneWatchingState extends State<EveryoneWatching> {
         Text(
       widget.passList[widget.index].title,
       
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold
       ),
@@ -37,7 +37,7 @@ class _EveryoneWatchingState extends State<EveryoneWatching> {
     height,
      Text(
       widget.passList[widget.index].overview,
-      style: TextStyle(
+      style: const TextStyle(
         color: colorGrey
       ),
     ),

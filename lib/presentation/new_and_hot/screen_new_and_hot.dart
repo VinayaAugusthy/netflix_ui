@@ -21,7 +21,6 @@ class _ScreenNewAndHotState extends State<ScreenNewAndHot> {
 
   @override
   void initState() {
-    // TODO: implement initState
     getWatching();
     comingSoon();
     super.initState();

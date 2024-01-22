@@ -20,7 +20,6 @@ List<ResultsDownloads> images = [];
 
 @override
   void initState() {
-    // TODO: implement initState
     getDownloadImages();
     super.initState();
   }
