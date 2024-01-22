@@ -1,76 +1,90 @@
-class DownloadScreenImages {
-  int? page;
-  List<ResultsDownloads>? results;
-  int? totalPages;
-  int? totalResults;
+// class DownloadScreenImages {
+//   int? page;
+//   List<ResultsDownloads>? results;
+//   int? totalPages;
+//   int? totalResults;
 
-  DownloadScreenImages(
-      {this.page, this.results, this.totalPages, this.totalResults});
+//   DownloadScreenImages(
+//       {this.page, this.results, this.totalPages, this.totalResults});
 
-  DownloadScreenImages.fromJson(Map<String, dynamic> json) {
-    page = json['page'];
-    if (json['results'] != null) {
-      results = <ResultsDownloads>[];
-      json['results'].forEach((v) {
-        results!.add(ResultsDownloads.fromJson(v));
-      });
-    }
-    totalPages = json['total_pages'];
-    totalResults = json['total_results'];
-  }
-}
+//   DownloadScreenImages.fromJson(Map<String, dynamic> json) {
+//     page = json['page'];
+//     if (json['results'] != null) {
+//       results = <ResultsDownloads>[];
+//       json['results'].forEach((v) {
+//         results!.add(ResultsDownloads.fromJson(v));
+//       });
+//     }
+//     totalPages = json['total_pages'];
+//     totalResults = json['total_results'];
+//   }
+// }
 
-class ResultsDownloads {
-  bool? adult;
-  String? backdropPath;
-  List<int>? genreIds;
-  int? id;
-  String? originalLanguage;
-  String? originalTitle;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  String? releaseDate;
-  String? title;
-  bool? video;
-  // double? voteAverage;
-  // int? voteCount;
+// class ResultsDownloads {
+//   bool? adult;
+//   String? backdropPath;
+//   List<int>? genreIds;
+//   int? id;
+//   String? originalLanguage;
+//   String? originalTitle;
+//   String? overview;
+//   double? popularity;
+//   String? posterPath;
+//   String? releaseDate;
+//   String? title;
+//   bool? video;
+//   // double? voteAverage;
+//   // int? voteCount;
 
-  ResultsDownloads(
-      {this.adult,
-      this.backdropPath,
-      this.genreIds,
-      this.id,
-      this.originalLanguage,
-      this.originalTitle,
-      this.overview,
-      this.popularity,
-      this.posterPath,
-      this.releaseDate,
-      this.title,
-      this.video,
-      // this.voteAverage,
-      // this.voteCount
-      });
+//   ResultsDownloads(
+//       {this.adult,
+//       this.backdropPath,
+//       this.genreIds,
+//       this.id,
+//       this.originalLanguage,
+//       this.originalTitle,
+//       this.overview,
+//       this.popularity,
+//       this.posterPath,
+//       this.releaseDate,
+//       this.title,
+//       this.video,
+//       // this.voteAverage,
+//       // this.voteCount
+//       });
 
-  ResultsDownloads.fromJson(Map<String, dynamic> json) {
-    adult = json['adult'];
-    backdropPath = json['backdrop_path'];
-    genreIds = json['genre_ids'].cast<int>();
-    id = json['id'];
-    originalLanguage = json['original_language'];
-    originalTitle = json['original_title'];
-    overview = json['overview'];
-    popularity = json['popularity'];
-    posterPath = json['poster_path'];
-    releaseDate = json['release_date'];
-    title = json['title'];
-    video = json['video'];
-    // voteAverage = json['vote_average'];
-    // voteCount = json['vote_count'];
-  }
-static List<ResultsDownloads> downloadsFromJson(List<dynamic> downloads){
-  return downloads.map((json) => ResultsDownloads.fromJson(json)).toList();
- }
+//   ResultsDownloads.fromJson(Map<String, dynamic> json) {
+//     adult = json['adult'];
+//     backdropPath = json['backdrop_path'];
+//     genreIds = json['genre_ids'].cast<int>();
+//     id = json['id'];
+//     originalLanguage = json['original_language'];
+//     originalTitle = json['original_title'];
+//     overview = json['overview'];
+//     popularity = json['popularity'];
+//     posterPath = json['poster_path'];
+//     releaseDate = json['release_date'];
+//     title = json['title'];
+//     video = json['video'];
+//     // voteAverage = json['vote_average'];
+//     // voteCount = json['vote_count'];
+//   }
+// static List<ResultsDownloads> downloadsFromJson(List<dynamic> downloads){
+//   return downloads.map((json) => ResultsDownloads.fromJson(json)).toList();
+//  }
 
+// }
+
+// ignore_for_file: invalid_annotation_target
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'download_model.freezed.dart';
+part 'download_model.g.dart';
+@freezed
+class Downloads with _$Downloads{
+  const factory Downloads({
+    @JsonKey(name: 'poster_path') required String? posterPath,
+  }) = _Downloads;
+
+  factory Downloads.fromJson(Map<String, dynamic> json) => _$DownloadsFromJson(json);
 }

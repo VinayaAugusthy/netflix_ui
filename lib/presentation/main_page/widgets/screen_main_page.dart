@@ -18,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
     const Home(),
     const ScreenNewAndHot(),
     const ScreenSearch(),
-    const ScreenDownloads()
+    // const ScreenDownloads()
   ];
   @override
   Widget build(BuildContext context) {
