@@ -22,7 +22,6 @@ List<TopSearch> topSearchArray = [];
  final searchController = TextEditingController();
  @override
   void initState() {
-    // TODO: implement initState
     topSearches();
     getSearchedValues();
     super.initState();
