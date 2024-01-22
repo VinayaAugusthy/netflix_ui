@@ -21,9 +21,21 @@ class NumberTitleCard extends StatelessWidget {
           maxHeight: 240,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: List.generate(10, (index) =>  NumberCard(index: index,posterPath: passList[index].posterPath,)),
+            children: List.generate(
+                10,
+                (index){
+                   if (passList[index] != null && passList[index].posterPath != null) {
+                  return NumberCard(
+                    index: index,
+                    posterPath: passList[index].posterPath!,
+                  );
+                } else {
+                  // Handle the case where passList[index] or its posterPath is null
+                  return Container(); // You can return an empty container or a placeholder widget
+                }
+                }),
           ),
-        ) 
+        )
       ],
     );
   }

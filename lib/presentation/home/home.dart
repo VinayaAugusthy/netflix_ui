@@ -25,7 +25,6 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    // TODO: implement initState
     
     super.initState();
     getTrending();
@@ -74,7 +73,7 @@ getUpcoming() async{
                   ListView.builder(
                     itemCount: 1,
                     itemBuilder: (context, index) {  
-                      return trending.isEmpty ? Center(child: const CircularProgressIndicator()) :
+                      return trending.isEmpty ? const Center(child: CircularProgressIndicator()) :
                       Column(
                       children:   [
                         BackgroundCard(posterPath: trending[index].posterPath??"may be null",),
