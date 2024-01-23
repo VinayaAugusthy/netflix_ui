@@ -8,6 +8,7 @@ import 'package:dartz/dartz.dart';
 
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 
 import 'package:netflix/domain/core/failures/main_failure.dart';
@@ -27,7 +28,7 @@ part 'downloads_state.dart';
 
 part 'downloads_bloc.freezed.dart';
 
-
+@injectable //where ever we need IDownloadsRepo , downloadsrepository will call or replace there
 class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
 
   final IDownloadsRepo _downloadsRepo;
