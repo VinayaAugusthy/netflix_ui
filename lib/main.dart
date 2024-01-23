@@ -4,6 +4,7 @@ import 'package:netflix/application/downloads/downloads_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/domain/core/di/injectable.dart';
 import 'package:netflix/presentation/main_page/widgets/screen_main_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,20 +15,17 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => DownloadsBloc(_downloadsRepo)(),
+          create: (context) => getIt<DownloadsBloc>(),
         ),
         // BlocProvider(
         //   create: (context) => SubjectBloc(),
         // ),
       ],
-      child: Container(),
-    )(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

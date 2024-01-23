@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/domain/http/downloads/download_images.dart';
-import 'package:netflix/domain/model/downloads/download_model.dart';
 import 'package:netflix/presentation/downloads/widgets/button_session3.dart';
 import 'package:netflix/presentation/downloads/widgets/smart_downloads.dart';
 import 'package:netflix/presentation/downloads/widgets/text_session2.dart';
@@ -15,20 +13,9 @@ class ScreenDownloads extends StatefulWidget {
 }
 
 class _ScreenDownloadsState extends State<ScreenDownloads> {
-List<ResultsDownloads> images = [];
+// List<ResultsDownloads> images = [];
 
-@override
-  void initState() {
-    getDownloadImages();
-    super.initState();
-  }
 
-  getDownloadImages() async{
-    images = await Download.getImages();
-    setState(() {
-      
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
