@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:netflix/domain/core/api_end_points.dart';
 import 'package:netflix/domain/core/failures/main_failure.dart';
 import 'package:netflix/domain/model/downloads/download_model.dart';
 import 'package:netflix/domain/model/downloads/i_downloads_repo.dart';
-
+@LazySingleton(as: IDownloadsRepo)//whereever we call idownloadsrepo downloadsrepository will call automatically there
 class DownloadsRepository implements IDownloadsRepo {
   @override
   Future<Either<MainFailure, List<Downloads>>> getDownloadsImages() async {
